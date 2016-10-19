@@ -31,14 +31,19 @@ function TodoCtrl($scope) {
 }
 
 function Rooms($scope){
+
   $scope.rooms = [
-    {text:'Room 1'},
-    {text:'Room 1'},
-    {text:'Room 1'}
+    {text:'Room', id:'1'},
+    {text:'Room', id:'2'},
+    {text:'Room', id:'3'}
   ];
 
+  $scope.getTotalRooms = function () {
+    return $scope.rooms.length;
+  };
+
   $scope.addRoom = function () {
-    $scope.rooms.push({text:'Room'});
-    console.log($scope.rooms.length);
+    count = this.getTotalRooms()+1;
+    $scope.rooms.push({text:'Room',id:count});
   }
 }
