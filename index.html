@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Todo list with AngularJS</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+
+    <html ng-app>
+
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#" style="font-size: 23px; color: white">Chat To Do!</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="1"><span class="glyphicon glyphicon-plus"></span></a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- <div class="todo-wrapper" ng-controller="TodoCtrl">
+      <h2>You've got <span class="emphasis">{{getTotalTodos()}}</span> things to do</h2>
+      <ul>
+        <li ng-repeat="todo in todos">
+          <input type="checkbox" ng-model="todo.done"/>
+          <span class="done-{{todo.done}}">{{todo.text}}</span>
+        </li>
+      </ul>
+      <form style="margin-top: 20px">
+        <input class="add-input" placeholder={{place1}} type="text" ng-model="formTodoText" ng-model-instant />
+        <button class="add-btn" ng-click="addTodo()">Add</button>
+      </form>
+
+      <button class="clear-btn" ng-click="clearCompleted()">Clear completed</button>
+    </div> -->
+
+    <div class="room-wrapper" ng-controller="Rooms">
+      <div class="row">
+          <li ng-repeat="rooms in rooms">
+            <div class="col-sm-3">
+            <a href="#/Action1" class="button"></a>
+            <span>{{rooms.text}}</span>
+            </div>
+          </li>
+        </div>
+
+    </div>
+
+  </body>
+
+</html>
+
+        <script src="js/index.js"></script>
+
+
+
+  </body>
+</html>

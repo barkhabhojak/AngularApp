@@ -1,0 +1,105 @@
+/*Navbar CSS*/
+.navbar.navbar-default {
+	background-color: #101130;
+	vertical-align: middle;
+	position: relative;
+}
+
+.glyphicon.glyphicon-plus {
+	font-size: 20px;
+	color: white;
+	margin-right: 20px;
+}
+
+
+/*To Do CSS*/
+.todo-wrapper {
+  width: 100%;
+}
+
+.done-true {
+  text-decoration: line-through;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+li {
+  font-size: 20px;
+  list-style-type: none;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+li input[type="checkbox"] {
+  width: 60px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.add-input {
+  width: 60%;
+  height: 50px;
+  padding: 20px 0;
+  font-size: 1.5em;
+  text-indent: 55px;
+  float: left;
+  background-color: #FDF4E3;
+  color: black;
+  border: none;
+}
+
+.add-btn {
+  width: 40%;
+  float: right;
+  font-size: 1.5em;
+  height: 50px;
+  background-color: #77B296;
+  color: white;
+  border: none;
+}
+
+
+.clear-btn {
+  width: 100%;
+  height: 50px;
+  font-size: 1.5em;
+  border: none;
+  background-color: #1B6642;
+  color: white;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: black;
+    opacity: 0.9;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: black;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: black;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: black;
+}
+
+.emphasis {
+  font-family: vast-shadow, sans-serif;
+  font-size: 2em;
+}
+
+.col-sm-3 {
+  margin-top: 25px;
+  padding-top: 2.5%;
+  text-align: center;
+  font-size: 1.2em;
+  vertical-align: middle;
+  line-height: normal;
+  height: 100px;
+}
