@@ -1,69 +1,29 @@
 <!DOCTYPE html>
-<html >
+<html>
   <head>
     <meta charset="UTF-8">
     <title>Todo list with AngularJS</title>
     <link rel="stylesheet" href="css/style.css">
-  </head>
-
-  <body>
-
-    <html ng-app>
-
-  <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    <script src="controllers/MainCtrl.js"></script>
   </head>
 
-  <body ng-controller="Rooms">
+  <body ng-app="myPage" style="background-color: #F0F0E0">
 
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#" style="font-size: 35px; color: white">Chat To Do!</a>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="home" style="font-size: 35px; color: white">Chat To Do!</a>
+          </div>
         </div>
-        <ul class="nav navbar-nav navbar-right">
-            <button class="glyphicon glyphicon-plus" ng-click="addRoom()"></button>
-        </ul>
+      </nav>
+
+      <div>
+        <div ui-view></div>
       </div>
-    </nav>
-
-
-    <div class="room-wrapper">
-      <div class="row">
-          <li ng-repeat="rooms in rooms">
-            <div class="col-sm-3">
-              <span class="{{rooms}}">{{rooms.text}} {{rooms.id}}</span>
-            </div>
-          </li>
-        </div>
-    </div>
-
-    <div class="todo-wrapper" ng-controller="TodoCtrl">
-      <h2>You've got <span class="emphasis">{{getTotalTodos()}}</span> things to do</h2>
-      <ul>
-        <li ng-repeat="todo in todos">
-          <input type="checkbox" ng-model="todo.done"/>
-          <span class="done-{{todo.done}}">{{todo.text}}</span>
-        </li>
-      </ul>
-      <form style="margin-top: 20px">
-        <input class="add-input" placeholder={{place1}} type="text" ng-model="formTodoText" ng-model-instant />
-        <button class="add-btn" ng-click="addTodo()">Add</button>
-      </form>
-
-      <button class="clear-btn" ng-click="clearCompleted()">Clear completed</button>
-    </div>
-
-
-  </body>
-
-</html>
-
-        <script src="js/index.js"></script>
-
 
 
   </body>

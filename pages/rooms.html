@@ -1,0 +1,10 @@
+<div class="room-wrapper" ng-controller="RoomsCtrl">
+  <div class="row">
+      <li ng-repeat="rooms in rooms">
+        <div class="col-sm-3">
+          <div class="card" ui-sref="room"><h4>{{rooms.text}} {{rooms.id}}</h4></div>
+        </div>
+      </li>
+    </div>
+    <button class="add-room" ng-click="addRoom()">Add A New Room!</button>
+</div>
