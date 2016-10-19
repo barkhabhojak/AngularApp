@@ -33,10 +33,12 @@ function TodoCtrl($scope) {
 function Rooms($scope){
   $scope.rooms = [
     {text:'Room 1'},
-    {text: 'Room 2'},
     {text:'Room 1'},
-    {text: 'Room 2'},
-    {text:'Room 1'},
-    {text: 'Room 2'}
+    {text:'Room 1'}
   ];
+
+  $scope.addRoom = function () {
+    $scope.rooms.push({text:'Room'});
+    console.log($scope.rooms.length);
+  }
 }

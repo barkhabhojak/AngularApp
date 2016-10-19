@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <title>Todo list with AngularJS</title>
-    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
 
@@ -18,20 +17,31 @@
 
   </head>
 
-  <body>
+  <body ng-controller="Rooms">
 
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#" style="font-size: 23px; color: white">Chat To Do!</a>
+          <a class="navbar-brand" href="#" style="font-size: 35px; color: white">Chat To Do!</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="1"><span class="glyphicon glyphicon-plus"></span></a></li>
+            <button class="glyphicon glyphicon-plus" ng-click="addRoom()"></button>
         </ul>
       </div>
     </nav>
 
-    <!-- <div class="todo-wrapper" ng-controller="TodoCtrl">
+
+    <div class="room-wrapper">
+      <div class="row">
+          <li ng-repeat="rooms in rooms">
+            <div class="col-sm-3">
+              <span class="{{rooms}}">{{rooms.text}}</span>
+            </div>
+          </li>
+        </div>
+    </div>
+
+    <div class="todo-wrapper" ng-controller="TodoCtrl">
       <h2>You've got <span class="emphasis">{{getTotalTodos()}}</span> things to do</h2>
       <ul>
         <li ng-repeat="todo in todos">
@@ -45,19 +55,8 @@
       </form>
 
       <button class="clear-btn" ng-click="clearCompleted()">Clear completed</button>
-    </div> -->
-
-    <div class="room-wrapper" ng-controller="Rooms">
-      <div class="row">
-          <li ng-repeat="rooms in rooms">
-            <div class="col-sm-3">
-            <a href="#/Action1" class="button"></a>
-            <span>{{rooms.text}}</span>
-            </div>
-          </li>
-        </div>
-
     </div>
+
 
   </body>
 

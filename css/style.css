@@ -6,9 +6,12 @@
 }
 
 .glyphicon.glyphicon-plus {
-	font-size: 20px;
+	margin-top: 4px;
+	font-size: 35px;
 	color: white;
-	margin-right: 20px;
+	border: none;
+	margin-right: 30px;
+	background-color: #101130;
 }
 
 
@@ -102,4 +105,10 @@ h2 {
   vertical-align: middle;
   line-height: normal;
   height: 100px;
+}
+
+.add-room {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
