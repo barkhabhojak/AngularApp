@@ -35,11 +35,10 @@ return {
 
 
 myPage.controller('RoomsCtrl', function ($scope,serviceID) {
-  $scope.rooms = [
-    {text:'Room', id:'1'},
-    {text:'Room', id:'2'},
-    {text:'Room', id:'3'}
-  ];
+  $scope.saved1 = localStorage.getItem('rooms');
+	$scope.rooms = (localStorage.getItem('rooms')!==null) ? JSON.parse($scope.saved1) : [ {text:'Room', id:'1'},{text:'Room', id:'2'} ];
+	localStorage.setItem('todos', JSON.stringify($scope.rooms));
+
 
   $scope.getTotalRooms = function () {
     return $scope.rooms.length;
@@ -47,6 +46,7 @@ myPage.controller('RoomsCtrl', function ($scope,serviceID) {
 
   $scope.addRoom = function () {
     $scope.rooms.push({text:'Room',id:this.getTotalRooms()+1});
+    localStorage.setItem('rooms', JSON.stringify($scope.rooms));
   }
 
   $scope.checkRoom = function (value) {
@@ -54,41 +54,6 @@ myPage.controller('RoomsCtrl', function ($scope,serviceID) {
   }
 
 });
-
-
-
-// myPage.controller('TodoCtrl', function ($scope) {
-//
-//   $scope.place1 = 'I need to..';
-//
-//   $scope.todos = [
-//     {text:'Task 1', done:false},
-//     {text: 'Task 2', done:false}
-//   ];
-//
-//   $scope.getTotalTodos = function () {
-//     return $scope.todos.length;
-//   };
-//
-//
-//   $scope.addTodo = function () {
-//     if ($scope.formTodoText===""){
-//       $scope.place1 = 'Please enter something';
-//     }
-//     else {
-//       $scope.place1 = 'I need to..';
-//       $scope.todos.push({text:$scope.formTodoText, done:false});
-//       $scope.formTodoText = '';
-//     }
-//   };
-//
-//     $scope.clearCompleted = function () {
-//         console.log("hello")
-//         $scope.todos = _.filter($scope.todos, function(todo){
-//             return !todo.done;
-//         });
-//     };
-// });
 
  myPage.controller('TodoCtrl', function ($scope,serviceID) {
   $scope.place1 = 'I need to ...';
@@ -100,7 +65,6 @@ myPage.controller('RoomsCtrl', function ($scope,serviceID) {
   var id_room = serviceID.getID();
 
   $scope.getIDRoom = function () {
-    console.log(id_room);
     return id_room;
   };
 
@@ -120,7 +84,6 @@ myPage.controller('RoomsCtrl', function ($scope,serviceID) {
 	};
 
 	$scope.remaining = function() {
-
 		var count = 0;
 		angular.forEach($scope.todos, function(todo){
       if (todo.id==id_room){
