@@ -36,8 +36,10 @@ return {
 
 myPage.controller('RoomsCtrl', function ($scope,serviceID) {
   $scope.saved1 = localStorage.getItem('rooms');
-	$scope.rooms = (localStorage.getItem('rooms')!==null) ? JSON.parse($scope.saved1) : [ {text:'Room', id:'1'},{text:'Room', id:'2'} ];
-	localStorage.setItem('todos', JSON.stringify($scope.rooms));
+	$scope.rooms = (localStorage.getItem('rooms')!==null) ? JSON.parse($scope.saved1) : [ {text:'Room', id:'1', active: true},
+                                                                                        {text:'Room', id:'2', active: true},
+                                                                                        {text:'Room', id:'3', active:true}  ];
+	localStorage.setItem('rooms', JSON.stringify($scope.rooms));
 
 
   $scope.getTotalRooms = function () {
@@ -45,7 +47,7 @@ myPage.controller('RoomsCtrl', function ($scope,serviceID) {
   };
 
   $scope.addRoom = function () {
-    $scope.rooms.push({text:'Room',id:this.getTotalRooms()+1});
+    $scope.rooms.push({text:'Room',id:this.getTotalRooms()+1,active:true});
     localStorage.setItem('rooms', JSON.stringify($scope.rooms));
   }
 
@@ -59,8 +61,8 @@ myPage.controller('RoomsCtrl', function ($scope,serviceID) {
   $scope.place1 = 'I need to ...';
 	$scope.saved = localStorage.getItem('todos');
 	$scope.todos = (localStorage.getItem('todos')!==null) ? JSON.parse($scope.saved) : [ {text: 'Task 1', done: false, id: '1'},
-                                                                                        {text: 'Task 1', done: false, id: '2'},
-                                                                                        {text: 'Task 2', done: false, id:'3'} ];
+                                                                                        {text: 'Task 2', done: false, id: '2'},
+                                                                                        {text: 'Task 3', done: false, id:'3'} ];
 	localStorage.setItem('todos', JSON.stringify($scope.todos));
   var id_room = serviceID.getID();
 

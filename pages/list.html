@@ -1,7 +1,7 @@
 <div class="todo-wrapper" ng-controller="TodoCtrl">
     <h2>Room {{ getIDRoom() }}</h2>
     <h3 ng-show="remaining()>1">You've got <span class="emphasis">{{ remaining() }}</span> things to do</h3>
-    <h3 ng-show="remaining() == 0">You've got <span class="emphasis">NOTHING</span>to do</h3>
+    <h3 ng-show="remaining() == 0">You've got <span class="emphasis">NOTHING</span> to do</h3>
     <h3 ng-show="remaining() == 1">You've got <span class="emphasis">{{ remaining() }}</span> thing to do</h3>
 
     <div class="todo-container">
