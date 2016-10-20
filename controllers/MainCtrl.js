@@ -120,9 +120,12 @@ myPage.controller('RoomsCtrl', function ($scope,serviceID) {
 	};
 
 	$scope.remaining = function() {
+
 		var count = 0;
 		angular.forEach($scope.todos, function(todo){
-			count+= todo.done ? 0 : 1;
+      if (todo.id==id_room){
+        count+= todo.done ? 0 : 1;
+      }
 		});
 		return count;
 	};

@@ -2,10 +2,9 @@
     <h2>Room {{ getIDRoom() }}</h2>
     <h3>You've got <span class="emphasis">{{ remaining() }}</span> things to do</h3>
     <ul>
-      <li ng-repeat="todo in todos">
+      <li ng-repeat="todo in todos" ng-show="todo.id == getIDRoom()">
           <input type="checkbox" ng-model="todo.done"/>
-          <!-- <span class=" done-{{ todo.done }}">{{ todo.text }} and {{todo.id}}</span> -->
-          <span>{{ todo.text }} and {{todo.id}}</span>
+          <span class=" done-{{ todo.done }}">{{ todo.text }}</span>
       </li>
     </ul>
     <form style="margin-top: 20px">
