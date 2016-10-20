@@ -1,16 +1,24 @@
 <div class="todo-wrapper" ng-controller="TodoCtrl">
     <h2>Room {{ getIDRoom() }}</h2>
-    <h3>You've got <span class="emphasis">{{ remaining() }}</span> things to do</h3>
-    <ul>
-      <li ng-repeat="todo in todos" ng-show="todo.id == getIDRoom()">
-          <input type="checkbox" ng-model="todo.done"/>
-          <span class=" done-{{ todo.done }}">{{ todo.text }}</span>
-      </li>
-    </ul>
-    <form style="margin-top: 20px">
-      <input class="add-input" placeholder={{place1}} type="text" ng-model="formTodoText" ng-model-instant />
-      <button class="add-btn" ng-click="addTodo()">Add</button>
-    </form>
+    <h3 ng-show="remaining()>1">You've got <span class="emphasis">{{ remaining() }}</span> things to do</h3>
+    <h3 ng-show="remaining() == 0">You've got <span class="emphasis">NOTHING</span>to do</h3>
+    <h3 ng-show="remaining() == 1">You've got <span class="emphasis">{{ remaining() }}</span> thing to do</h3>
 
-    <button class="clear-btn" data-ng-click="archive()">Clear completed</button>
+    <div class="todo-container">
+      <div class="todolist">
+        <ul>
+          <li ng-repeat="todo in todos" ng-show="todo.id == getIDRoom()">
+              <input type="checkbox" ng-model="todo.done"/>
+              <span class=" done-{{ todo.done }}">{{ todo.text }}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="btnss">
+        <form style="margin-top: 20px">
+          <input class="add-input" placeholder={{place1}} type="text" ng-model="formTodoText" ng-model-instant />
+          <button class="add-btn" ng-click="addTodo()">Add</button>
+        </form>
+        <button class="clear-btn" data-ng-click="archive()">Clear completed</button>
+      </div>
+    </div>
 </div>
