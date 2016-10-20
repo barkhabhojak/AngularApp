@@ -1,9 +1,9 @@
 <div class="todo-wrapper" ng-controller="TodoCtrl">
-    <h2>You've got <span class="emphasis">{{getTotalTodos()}}</span> things to do</h2>
+    <h2>You've got <span class="emphasis">{{ remaining() }}</span> things to do</h2>
     <ul>
       <li ng-repeat="todo in todos">
-        <input type="checkbox" ng-model="todo.done"/>
-        <span class="done-{{todo.done}}">{{todo.text}}</span>
+          <input type="checkbox" ng-model="todo.done"/>
+          <span class="done-{{ todo.done }}">{{ todo.text }}</span>
       </li>
     </ul>
     <form style="margin-top: 20px">
@@ -11,5 +11,5 @@
       <button class="add-btn" ng-click="addTodo()">Add</button>
     </form>
 
-    <button class="clear-btn" ng-click="clearCompleted()">Clear completed</button>
+    <button class="clear-btn" data-ng-click="archive()">Clear completed</button>
 </div>

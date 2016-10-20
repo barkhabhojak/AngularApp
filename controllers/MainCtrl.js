@@ -38,35 +38,74 @@ myPage.controller('RoomsCtrl', function ($scope) {
 
 
 
-myPage.controller('TodoCtrl', function ($scope) {
+// myPage.controller('TodoCtrl', function ($scope) {
+//
+//   $scope.place1 = 'I need to..';
+//
+//   $scope.todos = [
+//     {text:'Task 1', done:false},
+//     {text: 'Task 2', done:false}
+//   ];
+//
+//   $scope.getTotalTodos = function () {
+//     return $scope.todos.length;
+//   };
+//
+//
+//   $scope.addTodo = function () {
+//     if ($scope.formTodoText===""){
+//       $scope.place1 = 'Please enter something';
+//     }
+//     else {
+//       $scope.place1 = 'I need to..';
+//       $scope.todos.push({text:$scope.formTodoText, done:false});
+//       $scope.formTodoText = '';
+//     }
+//   };
+//
+//     $scope.clearCompleted = function () {
+//         console.log("hello")
+//         $scope.todos = _.filter($scope.todos, function(todo){
+//             return !todo.done;
+//         });
+//     };
+// });
 
-  $scope.place1 = 'I need to..';
+ myPage.controller('TodoCtrl', function ($scope) {
+   $scope.place1 = 'I need to ...';
+	$scope.saved = localStorage.getItem('todos');
+	$scope.todos = (localStorage.getItem('todos')!==null) ? JSON.parse($scope.saved) : [ {text: 'Task 1', done: false}, {text: 'Task 2', done: false} ];
+	localStorage.setItem('todos', JSON.stringify($scope.todos));
 
-  $scope.todos = [
-    {text:'Task 1', done:false},
-    {text: 'Task 2', done:false}
-  ];
-
-  $scope.getTotalTodos = function () {
-    return $scope.todos.length;
-  };
-
-
-  $scope.addTodo = function () {
+	$scope.addTodo = function() {
     if ($scope.formTodoText===""){
-      $scope.place1 = 'Please enter something';
+          $scope.place1 = 'Please enter something';
+       }
+		else {
+        $scope.todos.push({
+  			text: $scope.formTodoText,
+  			done: false
+  		});
+  		$scope.formTodoText = ''; //clear the input after adding
+  		localStorage.setItem('todos', JSON.stringify($scope.todos));
     }
-    else {
-      $scope.place1 = 'I need to..';
-      $scope.todos.push({text:$scope.formTodoText, done:false});
-      $scope.formTodoText = '';
-    }
-  };
+	};
 
-    $scope.clearCompleted = function () {
-        console.log("hello")
-        $scope.todos = _.filter($scope.todos, function(todo){
-            return !todo.done;
-        });
-    };
+	$scope.remaining = function() {
+		var count = 0;
+		angular.forEach($scope.todos, function(todo){
+			count+= todo.done ? 0 : 1;
+		});
+		return count;
+	};
+
+	$scope.archive = function() {
+		var oldTodos = $scope.todos;
+		$scope.todos = [];
+		angular.forEach(oldTodos, function(todo){
+			if (!todo.done)
+				$scope.todos.push(todo);
+		});
+		localStorage.setItem('todos', JSON.stringify($scope.todos));
+	};
 });
