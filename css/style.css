@@ -34,9 +34,10 @@ li {
 
 li input[type="checkbox"] {
   width: 60px;
+	height: 16px;
 }
 
-h2 {
+h2,h3 {
   text-align: center;
 }
 
@@ -117,6 +118,7 @@ h2 {
 button:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
+
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);

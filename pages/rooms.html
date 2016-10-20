@@ -2,7 +2,7 @@
   <div class="row">
       <li ng-repeat="rooms in rooms">
         <div class="col-sm-3">
-          <div class="card" ui-sref="room"><h4>{{rooms.text}} {{rooms.id}}</h4></div>
+          <div class="card" ui-sref="room" ng-click="checkRoom(rooms.id)"><h4>{{rooms.text}} {{rooms.id}}</h4></div>
         </div>
       </li>
     </div>

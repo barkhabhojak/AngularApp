@@ -1,9 +1,11 @@
 <div class="todo-wrapper" ng-controller="TodoCtrl">
-    <h2>You've got <span class="emphasis">{{ remaining() }}</span> things to do</h2>
+    <h2>Room {{ getIDRoom() }}</h2>
+    <h3>You've got <span class="emphasis">{{ remaining() }}</span> things to do</h3>
     <ul>
       <li ng-repeat="todo in todos">
           <input type="checkbox" ng-model="todo.done"/>
-          <span class="done-{{ todo.done }}">{{ todo.text }}</span>
+          <!-- <span class=" done-{{ todo.done }}">{{ todo.text }} and {{todo.id}}</span> -->
+          <span>{{ todo.text }} and {{todo.id}}</span>
       </li>
     </ul>
     <form style="margin-top: 20px">
